@@ -322,7 +322,7 @@ ifeq ($(F77),gfortran)
   # NOTE: Apparently ... the compiler detects differences in the kind (byte-length) of actual arguments used in different calls to the same subroutine.
   #       => error (-fallow-argument-mismatch turns this is a warning) (cannot then have -pedantic) [error occurs in outm_netcdf.F]
   # first get gfortran major version number
-  FVER=$(shell gfortran -dumpversion)
+  FVER=$(shell gfortran -dumpversion | cut -d. -f1)
 ###  add flag if version == 10 (will worry later when version 11 comes out ...)
 ###  ifeq ($(FVER),10)
 ###    FFLAGS += -fallow-argument-mismatch
